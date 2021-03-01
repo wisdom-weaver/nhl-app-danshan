@@ -8,9 +8,9 @@ import SmallLogo from "../components/SmallLogo";
 import {
   MatchupTab,
   structure_matchup_data,
-} from "../components/stats_cards_components/basketball-nba-tabs/MatchTab";
-import { InjuriesTab } from "../components/stats_cards_components/basketball-nba-tabs/InjuriesTab";
-import { OddsTab } from "../components/stats_cards_components/basketball-nba-tabs/OddsTab";
+} from "../components/stats_cards_components/hockey-nhl-tabs/MatchTab";
+import { InjuriesTab } from "../components/stats_cards_components/hockey-nhl-tabs/InjuriesTab";
+import { OddsTab } from "../components/stats_cards_components/hockey-nhl-tabs/OddsTab";
 import {
   both,
   higher_better,
@@ -25,8 +25,8 @@ import {
   set_status_at_key_action,
 } from "../store/actions/teamStatsActions";
 import { get_colors_combo, get_team_data_from_any_name } from "../utils/utils";
-import { TrendsTab } from "../components/stats_cards_components/basketball-nba-tabs/TrendsTab";
-import { StreaksTab } from "../components/stats_cards_components/basketball-nba-tabs/StreaksTab";
+import { TrendsTab } from "../components/stats_cards_components/hockey-nhl-tabs/TrendsTab";
+import { StreaksTab } from "../components/stats_cards_components/hockey-nhl-tabs/StreaksTab";
 
 export const dispatch_structured_data = ({
   category,

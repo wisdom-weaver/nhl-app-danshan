@@ -1,9 +1,4 @@
-import { structure_matchup_data } from "../../components/stats_cards_components/basketball-nba-tabs/MatchTab";
-import { structure_injuries_data } from "../../components/stats_cards_components/basketball-nba-tabs/InjuriesTab";
-import { structure_odds_data } from "../../components/stats_cards_components/basketball-nba-tabs/OddsTab";
-import { structure_trends_data } from "../../components/stats_cards_components/basketball-nba-tabs/TrendsTab";
-import { structure_streaks_data } from "../../components/stats_cards_components/basketball-nba-tabs/StreaksTab";
-import { structure_powerrankings_data } from "../../components/stats_cards_components/basketball-nba-tabs/PowerRankingsTab";
+
 import { hockey_nhl_stats_ob } from "../../components/stats_cards_components/hockey-nhl-tabs/hockey_nhl_stats_ob";
 
 const initialState = {

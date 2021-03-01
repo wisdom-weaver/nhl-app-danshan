@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import LargeLogo from "../components/LargeLogo";
 import SmallLogo from "../components/SmallLogo";
 import StatsCardWrapper from "../components/StatsCardWrapper";
-import { TeamInjuries } from "../components/stats_cards_components/basketball-nba-tabs/InjuriesTab";
+import { TeamInjuries } from "../components/stats_cards_components/hockey-nhl-tabs/InjuriesTab";
 import { get_all_teams_names } from "../utils/utils";
 import StatsTabsCard, { post_fetch_api_at_stat_key } from "./StatsTabsCard";
 

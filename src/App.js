@@ -5,7 +5,6 @@ import { BrowserRouter, HashRouter } from "react-router-dom";
 import { compose } from "redux";
 import Layout from "./components/Layout";
 import { get_team_key } from "./utils/utils";
-import GamePage from "./views/GamePage";
 import HomePage from "./views/HomePage";
 import InjuriesPage from "./views/InjuriesPage";
 import PowerRankingsPage from "./views/PowerRankingsPage";

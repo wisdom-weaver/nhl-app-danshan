@@ -6,7 +6,6 @@ import {
   dispatch_status_loaded,
   post_fetch_api_at_stat_key,
 } from "../views/StatsTabsCard";
-import { structure_matchup_data } from "./stats_cards_components/basketball-nba-tabs/MatchTab";
 import { store } from "../index";
 
 const get_each_config = async ({ config, category, subcategory, dispatch }) => {
