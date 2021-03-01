@@ -85,7 +85,9 @@ function TeamPage(props) {
                 </div>
               </div>
             </div>
-            <ButtonLinks />
+            <div className="row">
+              <ButtonLinks />
+            </div>
             {status?.powerrankings == "loaded" && (
               <div className="col s12">
                 <TeamPowerRankings
