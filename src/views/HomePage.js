@@ -58,7 +58,7 @@ function HomePage() {
   // console.log(all_teams_data);
   return (
     <div>
-      <h1 className="center">NHL Teams</h1>
+      <h1 className="center">NHL</h1>
       <div className="row">
         <ButtonLinks />
       </div>

@@ -99,9 +99,9 @@ export const TrendsTab = ({ statA, statB }) => {
       <table className="hide-on-small-only">
         <tbody>
           <tr>
-            <td>Team</td>
+            <th>Team</th>
             {show_trends.map(({ key_head, key_final }) => (
-              <td>{key_head}</td>
+              <th>{key_head}</th>
             ))}
           </tr>
           {(trendsA && Object.keys(trendsA).length != 0) &&
@@ -170,9 +170,9 @@ export const TeamTrends = ({ team, category, subcategory }) => {
           <table className="hide-on-small-only">
           <tbody>
             <tr>
-              <td>Team</td>
+              <th>Team</th>
               {show_trends.map(({ key_head, key_final }) => (
-                <td>{key_head}</td>
+                <th>{key_head}</th>
               ))}
             </tr>
             <tr>

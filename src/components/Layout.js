@@ -22,7 +22,7 @@ function Layout(props) {
         <NavLink to="/">
           <div className="btn large-btn black-btn m5">NHL</div>
         </NavLink>
-        <a href="http://bettorsight.com/nba/">
+        <a target="_blank" href="http://bettorsight.com/nba/">
           <div className="btn large-btn  black-btn m5">NBA</div>
         </a>
       </div>

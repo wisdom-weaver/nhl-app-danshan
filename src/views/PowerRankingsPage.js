@@ -102,7 +102,7 @@ function PowerRankingsPage() {
 
   return (
     <div>
-      <h5 className="center head">NBA PowerRankings</h5>
+      <h5 className="center head">NHL PowerRankings</h5>
       <div className="row">
         <ButtonLinks />
       </div>

@@ -72,7 +72,7 @@ function InjuriesPage() {
   })
   return (
     <div>
-      <h5 className="center head">NBA Injuries</h5>
+      <h5 className="center head">NHL Injuries</h5>
       <div className="row">
         <ButtonLinks />
       </div>
