@@ -1,5 +1,6 @@
 {
   "name": "nhl-app-danshan",
+  "homepage": "https://jgexchange.com/nhl",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
