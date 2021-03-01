@@ -15,8 +15,13 @@ import { TeamInjuries } from "../components/stats_cards_components/hockey-nhl-ta
 import SmallLogo from "../components/SmallLogo";
 import { TeamOdds } from "../components/stats_cards_components/hockey-nhl-tabs/OddsTab";
 import { TeamTrends } from "../components/stats_cards_components/hockey-nhl-tabs/TrendsTab";
-import { TeamMatchup } from "../components/stats_cards_components/hockey-nhl-tabs/MatchTab";
+import {
+  TeamMatchup,
+  TeamMatchupMD,
+} from "../components/stats_cards_components/hockey-nhl-tabs/MatchTab";
 import { TeamPowerRankings } from "../components/stats_cards_components/hockey-nhl-tabs/PowerRankingsTab";
+import { NavLink } from "react-router-dom";
+import { ButtonLinks } from "../components/Layout";
 
 const category = "hockey";
 const subcategory = "nhl";
@@ -24,7 +29,7 @@ const subcategory = "nhl";
 function TeamPage(props) {
   const match = useRouteMatch();
   var { teamid } = match.params;
-  teamid = teamid?.replace('_', ' ');
+  teamid = teamid?.replace("_", " ");
   const teamData = get_team_data_from_any_name({
     team: teamid,
     category,
@@ -58,7 +63,7 @@ function TeamPage(props) {
         >
           <div className="spacing-30px"></div>
           <div className="row">
-            <div className="col s12 m10 offset-m1 l8 offset-l2">
+            <div className="col s12 m12 l6 offset-l3">
               <div className="card round-card" style={{ background: color1 }}>
                 <div className="card-content">
                   <div className="col-flex">
@@ -66,28 +71,31 @@ function TeamPage(props) {
                       className="large-logo-container"
                       style={{
                         backgroundColor: "white",
-                        padding: "5px",
-                        height: "100px",
-                        width: "100px",
+                        padding: "2px",
+                        height: "80px",
+                        width: "80px",
                         overflow: "hidden",
-                        borderRadius: "25px",
+                        borderRadius: "15px",
                       }}
                     >
                       <img src={teamImg} />
                     </div>
-                    <h4 className="head white-text">{teamName}</h4>
+                    <h5 className="head white-text">{teamName}</h5>
                   </div>
                 </div>
               </div>
             </div>
+            <ButtonLinks />
             {status?.powerrankings == "loaded" && (
               <div className="col s12">
-                <TeamPowerRankings {...{ team: teamName, category, subcategory }} />
+                <TeamPowerRankings
+                  {...{ team: teamName, category, subcategory }}
+                />
               </div>
             )}
             {status?.injuries == "loaded" && (
               <div className="col s12">
-                <TeamInjuries {...{ team: teamName, category, subcategory }} />
+                <TeamInjuries {...{ team: teamName, category, subcategory, showTeam: false }} />
               </div>
             )}
             {status?.matchup == "loaded" && (
@@ -95,9 +103,9 @@ function TeamPage(props) {
                 <TeamMatchup {...{ team: teamName, category, subcategory }} />
               </div>
             )}
-            {status?.odds == "loaded" && (
+            {status?.matchup == "loaded" && (
               <div className="col s12">
-                <TeamOdds {...{ team: teamName, category, subcategory }} />
+                <TeamMatchupMD {...{ team: teamName, category, subcategory }} />
               </div>
             )}
             {status?.trends == "loaded" && (

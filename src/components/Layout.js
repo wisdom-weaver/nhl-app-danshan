@@ -20,15 +20,11 @@ function Layout(props) {
       </div>
       <div className="row-flex ">
         <NavLink to="/">
-          <div className="btn black-btn m5">Home</div>
+          <div className="btn large-btn black-btn m5">NHL</div>
         </NavLink>
-        <NavLink to="/powerrankings">
-          <div className="btn black-btn m5">Power Rankings</div>
-        </NavLink>
-        <NavLink to="/injuries">
-          <div className="btn black-btn m5">Injuries</div>
-        </NavLink>
-        {/* <NavLink to="/trends"><div className="btn black-btn m5">Trends</div></NavLink> */}
+        <a href="http://bettorsight.com/nba/">
+          <div className="btn large-btn  black-btn m5">NBA</div>
+        </a>
       </div>
       <div className="rankings-container">
         <div className="row">
@@ -46,5 +42,25 @@ function Layout(props) {
     </div>
   );
 }
+
+export const ButtonLinks = () => {
+  return (
+    <>
+      <div className="col s12">
+        <div className="row-flex ">
+          <NavLink to="/">
+            <div className="btn large-btn black-btn m5">NHL Home</div>
+          </NavLink>
+          <NavLink to="/injuries">
+            <div className="btn large-btn black-btn m5">Injuries</div>
+          </NavLink>
+          <NavLink to="/powerrankings">
+            <div className="btn large-btn black-btn m5">Power Rankings</div>
+          </NavLink>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Layout;

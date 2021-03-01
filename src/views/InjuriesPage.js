@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 // import GetFromAPI from "../components/GetFromAPI";
 import LargeLogo from "../components/LargeLogo";
+import { ButtonLinks } from "../components/Layout";
 import SmallLogo from "../components/SmallLogo";
 import StatsCardWrapper from "../components/StatsCardWrapper";
 import { TeamInjuries } from "../components/stats_cards_components/hockey-nhl-tabs/InjuriesTab";
@@ -71,7 +72,10 @@ function InjuriesPage() {
   })
   return (
     <div>
-      <h5 className="center">NBA Injuries</h5>
+      <h5 className="center head">NBA Injuries</h5>
+      <div className="row">
+        <ButtonLinks />
+      </div>
       <input type="text" value={search} onChange={(e)=>{set_search(e.target.value)}}/>
       <StatsCardWrapper
         {...{ category, subcategory, post_fetch_api_at_stat_key, configs }}

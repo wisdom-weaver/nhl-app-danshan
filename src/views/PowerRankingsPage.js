@@ -6,10 +6,15 @@ import LargeLogo from "../components/LargeLogo";
 import SmallLogo from "../components/SmallLogo";
 import StatsCardWrapper from "../components/StatsCardWrapper";
 import { TeamInjuries } from "../components/stats_cards_components/hockey-nhl-tabs/InjuriesTab";
-import { get_all_teams_names, get_n_with_sign, get_team_data } from "../utils/utils";
+import {
+  get_all_teams_names,
+  get_n_with_sign,
+  get_team_data,
+} from "../utils/utils";
 import StatsTabsCard, { post_fetch_api_at_stat_key } from "./StatsTabsCard";
-import {TeamLink} from './HomePage'
+import { TeamLink } from "./HomePage";
 import _ from "lodash";
+import { ButtonLinks } from "../components/Layout";
 
 const category = "hockey";
 const subcategory = "nhl";
@@ -44,7 +49,7 @@ const EachPowerRankingRow = ({ team, rankings_all }) => {
     <>
       <tr>
         <td>
-          <TeamLink {...{team}}/>
+          <TeamLink {...{ team }} />
         </td>
         <td className="head">{get_n_with_sign(rankings_all[team].ranking)}</td>
       </tr>
@@ -79,7 +84,7 @@ function PowerRankingsPage() {
   );
   var rankings_all = useSelector((state) => {
     try {
-      return state.teamStats[category][subcategory].stats['powerrankings'];
+      return state.teamStats[category][subcategory].stats["powerrankings"];
     } catch (err) {
       return {};
     }
@@ -89,7 +94,7 @@ function PowerRankingsPage() {
 
   var loaded = useSelector((state) => {
     try {
-      return state.teamStats[category][subcategory].status['powerrankings'];
+      return state.teamStats[category][subcategory].status["powerrankings"];
     } catch (err) {
       return false;
     }
@@ -97,7 +102,10 @@ function PowerRankingsPage() {
 
   return (
     <div>
-      <h5 className="center">NBA PowerRankings</h5>
+      <h5 className="center head">NBA PowerRankings</h5>
+      <div className="row">
+        <ButtonLinks />
+      </div>
       <input
         type="text"
         value={search}
@@ -115,7 +123,9 @@ function PowerRankingsPage() {
                 {(() => {
                   var teams;
                   if (!search || search?.trim().length == 0)
-                    teams = _.sortBy(rankings_all, function(ob){return parseFloat(ob.ranking)}).map(ea=>ea.team)
+                    teams = _.sortBy(rankings_all, function (ob) {
+                      return parseFloat(ob.ranking);
+                    }).map((ea) => ea.team);
                   else {
                     teams = filter({ search, rankings_all });
                   }
