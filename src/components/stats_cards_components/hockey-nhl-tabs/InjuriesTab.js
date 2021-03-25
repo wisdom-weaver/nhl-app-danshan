@@ -48,6 +48,18 @@ const key_mapping_injuries = [
   },
 ];
 
+const format_injuries_pos = (inp)=>{
+  let ar = [
+    {imp:'high', style:'red-text'},
+    {imp:'med',  style:'blue-text'},
+    {imp:'low',  style:'green-text'},
+    {imp:'na',   style:'black-text'},
+  ]
+  let evaluated = ar.find(({imp})=>inp.toLowerCase().includes(imp))
+  let classname = (evaluated && evaluated.style) ||  'black-text'
+  return <span className={classname}>{inp}</span>
+};
+
 export const structure_injuries_data = (data_ar) => {
   var raw_injuries = data_ar[0].feed.entry;
   raw_injuries = structure_raw_row_from_key_mapping({
@@ -113,7 +125,7 @@ export const InjuriesTab = ({ statA, statB }) => {
                             <tr>
                               <th>{player}</th>
                               <td>
-                                {position}/{positionno}
+                                {format_injuries_pos(`${position}/${positionno}`)}
                               </td>
                               <td>{updated}</td>
                               <td>{injury}</td>
@@ -147,7 +159,7 @@ export const InjuriesTab = ({ statA, statB }) => {
                           <tr>
                             <th>{player}</th>
                             <td>
-                              {position}/{positionno}
+                              {format_injuries_pos(`${position}/${positionno}`)}
                             </td>
                             <td>{updated}</td>
                             <td>{injury}</td>
@@ -225,7 +237,7 @@ export const TeamInjuries = ({ team, category, subcategory, showTeam=true }) => 
                             <tr>
                               <th>{player}</th>
                               <td>
-                                {position}/{positionno}
+                                {format_injuries_pos(`${position}/${positionno}`)}
                               </td>
                               <td>{updated}</td>
                               <td>{injury}</td>
@@ -260,7 +272,7 @@ export const TeamInjuries = ({ team, category, subcategory, showTeam=true }) => 
                             <tr>
                               <th>{player}</th>
                               <td>
-                                {position}/{positionno}
+                                {format_injuries_pos(`${position}/${positionno}`)}
                               </td>
                               <td>{updated}</td>
                               <td>{injury}</td>

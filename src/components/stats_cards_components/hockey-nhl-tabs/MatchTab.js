@@ -167,6 +167,43 @@ const key_mapping_md = [
   }  
 ]
 
+const format_md = {
+  team_md: ({row}) => {
+    return row['team_md'];
+  },
+  opp: ({row}) => {
+    return row['opp'];
+  },
+  site: ({row}) => {
+    var {site} = row;
+    var lsite = site.toLowerCase();
+    const classname =  (lsite=='home' && 'blue-text') || (lsite=='away' && 'purple-text') || ''
+    return <span className={classname}>{site}</span>;
+  },
+  final: ({row}) => {
+    const {final} = row;
+    const [a,b] = final.split('-');
+    const classname =  (a>b && 'green-text') || (b>a && 'red-text') || ''
+    return <span className={classname}>{final}</span>;
+  },
+  line: ({row}) => {
+    const {line} = row;
+    return <span className='black-text'>{line}</span>;
+  },
+  total: ({row}) => {
+    let {final, total} = row;
+    total = parseFloat(total);
+    const [a,b] = final.split('-');
+    const fin_tot = parseFloat(a)+parseFloat(b)
+    const classname = (fin_tot==total && 'blue-text' ) ||
+                      (fin_tot>total ? 'green-text' : 'red-text')
+    return <span className={classname}>{total}</span>;
+  },
+  date: ({row}) => {
+    return row['date'];
+  },
+};
+
 export const structure_matchup_data = (data_ar) => {
   try {
     var raw_matchup = data_ar[0].feed.entry;
@@ -396,10 +433,14 @@ export const TeamMatchupMD = ({ team, category, subcategory }) => {
               <tr>
                 {disp_mapping?.map(({key_head})=>( <th>{key_head}</th> ))}
               </tr>
-              {md.map(eamd=>(
-              <tr>
-                {disp_mapping?.map(({key_final})=>( <td>{eamd[key_final]}</td> ))}
-              </tr>
+              {md.map((eamd) => (
+                <tr>
+                  {disp_mapping?.map(({ key_final }, index) => (
+                    <td key={index}>{
+                      format_md[key_final]({ row:eamd })
+                    }</td>
+                  ))}
+                </tr>
               ))}
             </tbody>
           </table>
