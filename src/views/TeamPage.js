@@ -15,6 +15,7 @@ import { TeamInjuries } from "../components/stats_cards_components/hockey-nhl-ta
 import SmallLogo from "../components/SmallLogo";
 import { TeamOdds } from "../components/stats_cards_components/hockey-nhl-tabs/OddsTab";
 import { TeamTrends } from "../components/stats_cards_components/hockey-nhl-tabs/TrendsTab";
+import { TeamGoalieDepths } from "../components/stats_cards_components/hockey-nhl-tabs/GoalieDepthTab";
 import {
   TeamMatchup,
   TeamMatchupMD,
@@ -44,14 +45,6 @@ function TeamPage(props) {
       return state.teamStats[category][subcategory].status;
     } catch (err) {
       return false;
-    }
-  });
-
-  const team_matchup = useSelector((state) => {
-    try {
-      return state.teamStats[category][subcategory].stats.matchup[teamName];
-    } catch (err) {
-      return {};
     }
   });
 
@@ -113,6 +106,11 @@ function TeamPage(props) {
             {status?.trends == "loaded" && (
               <div className="col s12">
                 <TeamTrends {...{ team: teamName, category, subcategory }} />
+              </div>
+            )}
+            {status?.goaliedepths == "loaded" && (
+              <div className="col s12">
+                <TeamGoalieDepths {...{ team: teamName, category, subcategory }} />
               </div>
             )}
           </div>

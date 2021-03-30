@@ -4,6 +4,7 @@ import { structure_streaks_data, StreaksTab } from "./StreaksTab";
 import { structure_trends_data, TrendsTab } from "./TrendsTab";
 import { structure_matchup_data, MatchupTab } from "./MatchTab";
 import { structure_powerrankings_data } from "./PowerRankingsTab";
+import { structure_goaliedepths_data } from "./GoalieDepthTab";
 
 export const hockey_nhl_stats_ob = {
   status: {
@@ -13,6 +14,7 @@ export const hockey_nhl_stats_ob = {
     trends: "not_loaded",
     streaks: "not_loaded",
     powerrankings: "not_loaded",
+    goaliedepths: "not_loaded",
   },
   configs: {
     odds:{
@@ -51,6 +53,12 @@ export const hockey_nhl_stats_ob = {
         "https://spreadsheets.google.com/feeds/list/1dEWChz8nDCVa1tmIi2QuUSzuYD2ZHQ1th2ZvUW5OKto/2/public/values?alt=json",
       ],
       structure_data: structure_powerrankings_data
+    },
+    goaliedepths:{
+      apis: [
+        "https://spreadsheets.google.com/feeds/list/1dEWChz8nDCVa1tmIi2QuUSzuYD2ZHQ1th2ZvUW5OKto/10/public/values?alt=json",
+      ],
+      structure_data: structure_goaliedepths_data
     }
   },
   tabs:[
